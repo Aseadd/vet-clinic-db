@@ -29,7 +29,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- [Micriverse](https://github.com/microverseinc)
+- [Microverse](https://github.com/microverseinc)
 
 ## 📝 License
 
