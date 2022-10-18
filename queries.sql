@@ -33,17 +33,16 @@ SELECT * FROM animals;
 ROLLBACK; 
 BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022/01/01';
-DELETE 1
 SELECT * FROM animals;
 SAVEPOINT my_savepoint1;
 UPDATE animals SET wight_kg = wight_kg*-1;
 ROLLBACK TO SAVEPOINT my_savepoint1;
 UPDATE animals SET wight_kg = wight_kg*-1 WHERE wight_kg < 0;
-
+COMMIT;
 SELECT COUNT(*) FROM animals;
 SELECT COUNT(escape_attempts) FROM animals WHERE escape_attempts =0;
 SELECT AVG(wight_kg) FROM animals;
 SELECT name  FROM animals WHERE escape_attempts = ( SELECT MAX (escape_attempts) FROM animals WHERE neutered = true OR neutered = false );
 SELECT species, MAX(wight_kg) FROM animals GROUP BY species; 
 SELECT species, MAX(wight_kg), MIN(wight_kg) FROM animals GROUP BY species; 
-SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990/01/01' AND '2000/01/01' GROUP BY species;
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990/01/01' AND '2000/12/31' GROUP BY species;
