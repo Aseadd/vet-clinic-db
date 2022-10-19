@@ -46,3 +46,8 @@ SELECT name  FROM animals WHERE escape_attempts = ( SELECT MAX (escape_attempts)
 SELECT species, MAX(wight_kg) FROM animals GROUP BY species; 
 SELECT species, MAX(wight_kg), MIN(wight_kg) FROM animals GROUP BY species; 
 SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990/01/01' AND '2000/12/31' GROUP BY species;
+SELECT name, full_name FROM animals JOIN owners ON owner_id = 4 AND full_name = 'Melody Pond';
+SELECT A.name, S.name FROM animals A JOIN species S ON A.species_id =1 AND S.name ='Pokemon';
+SELECT A.name, O.full_name  FROM animals A FULL JOIN owners O ON A.owner_id = O.id;
+SELECT S.name, COUNT(species_id)  FROM animals A JOIN species S ON A.species_id = S.id GROUP BY S.name;
+
